@@ -1,0 +1,9 @@
+create table useraccounts(Slno int(3)not null, username varchar(25)primary key not null, name varchar(25), address varchar(100), email_id varchar(30), contact int(10), password varchar(25) not null); 
+
+create table inventory_cat(  username varchar(25),inventoryname varchar(25) primary key not null, year int(4), season  varchar(10),foreign key (username) references useraccounts(username), UNIQUE (username,inventoryname));
+
+create table inv_items( username varchar(25), inventoryname varchar(25),itemname varchar(50) primary key, itempic MEDIUMBLOB, m_cost int(6), s_cost int(6), sizes varchar(30), foreign key (username) references useraccounts(username), foreign key (inventoryname) references inventory_cat(inventoryname), UNIQUE (username,inventoryname,itemname));
+
+create table inv_sizes( username varchar(25), inventoryname varchar(25), itemname varchar(25), sizename varchar(25), available int(5), sold int(5), foreign key (username) references useraccounts(username), foreign key (inventoryname) references inventory_cat(inventoryname), foreign key (itemname) references inv_items(itemname));
+
+
