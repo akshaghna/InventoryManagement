@@ -20,7 +20,7 @@ public class UserCatalogueItem {
 	
 	public UserCatalogueItem(String itemname, int pcost, int scost,int sizexsavail, int sizexssold, int sizesavail, 
 			int sizessold,int sizemavail,int sizemsold,int sizelavail, int sizelsold, int sizexlavail, int sizexlsold,
-			int sizexxlavail, int sizexxlsold) {
+			int sizexxlavail, int sizexxlsold, int i) {
 		super();
 		this.itemname = itemname;
 		this.pcost = pcost;

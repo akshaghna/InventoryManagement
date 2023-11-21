@@ -134,7 +134,7 @@ public class DBUtils {
     		result1 = stmt.executeQuery(query);
     		while(result1.next()) {
     			UserCatalogueItem catl = new UserCatalogueItem(result1.getString("itemname"), 
-    					result1.getInt("pcost"), result1.getInt("scost"));
+    					result1.getInt("pcost"), result1.getInt("scost"),result1.getInt("sizexsavail"), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
     			catItems.add(catl);
     		}
     	}catch (Exception e) {
@@ -210,15 +210,15 @@ public class DBUtils {
           	}
           	return result;
           }
-    public static List<UserCatalogueItem> getCatalogueItem(String username,String category) {
-    	List<UserCatalogueItem> catItems = new ArrayList<UserCatalogueItem>();
+    public static boolean getCatalogueItem(String cataloguename,String itemname, int pcost, int scost, int sizexsavail, int sizexssold, int sizesavail, int sizessold, int sizemavail, int sizemsold, int sizelavail, int sizelsold, int sizexlavail, int sizexlsold, int sizexxlavail, int sizexxlsold) {
+    	ArrayList<UserCatalogueItem> catItems = new ArrayList<UserCatalogueItem>();
     	Connection conn=null;
     	Statement stmt=null;
     	ResultSet result1=null;
     	try{
     		conn = DBUtils.getConnection();
     		stmt = conn.createStatement();
-    		String query = "select * from oim_inventory_items where category='" + category + "'and username='"+username+"')";
+    		String query = "select * from oim_inventory_items where category='" + cataloguename + "'and itemname='"+itemname+"')";
     		System.out.println(query);
     		result1 = stmt.executeQuery(query);
     		while(result1.next()) {
@@ -242,6 +242,67 @@ public class DBUtils {
     	}
     	return catItems;
     }
+    public static boolean addcitems (String cataloguename,String itemname, int scost, int pcost,int sizexsavail,int sizexssold
+    		,int sizesavail, int sizessold, int sizemavail, int sizemsold, int sizelavail, int sizelsold, int sizexlavail, 
+    		int sizexlsold, int sizexxlavail, int sizexxlsold){ 
+          	boolean result = false;    	
+          	Connection conn=null;
+          	Statement stmt=null;
+          	try{
+          		conn = DBUtils.getConnection();
+          		stmt = conn.createStatement();
+          		String query = "insert into oim_inventory_category values('"+
+              		    itemname +"','"+ scost +"',"+ pcost +",'"+sizexsavail+"','"+sizexssold+"','"+sizesavail+"','"+
+          				sizessold+"','"+ sizemavail+"','"+sizemsold+"','"+sizelavail+"','"+sizelsold+"','"+sizexlavail+"','"+sizexlsold+"','"+sizexxlavail+"','"+sizexxlsold+');"
+          		System.out.println(query);
+          		int result1 = stmt.executeUpdate(query);
+          		if (result1 ==1) {
+                      System.out.println("successfully inserted"); 
+                      result = true;
+          		}  
+                  else {
+                      System.out.println( "unsucessful insertion "); 
+                  }      
+          	}catch (Exception e) {
+          		  e.printStackTrace();
+          	} 
+          	finally { 
+          		try {
+              		conn.close();
+          		}catch (Exception e) {  } 		
+          		
+          	}
+          	return result;
+          }
+    public static boolean deletecitems (String itemname,String cataloguename){ 
+      	boolean result = false;    	
+      	Connection conn=null;
+      	Statement stmt=null;
+      	try{
+      		conn = DBUtils.getConnection();
+      		stmt = conn.createStatement();
+      		String query = "delete from oim_inventory_inventory where category='"+
+          		   cataloguename +"' and itemname='"+itemname+"'";
+      		System.out.println(query);
+      		int result1 = stmt.executeUpdate(query);
+      		if (result1>0) {
+                  System.out.println("successfully deleted"); 
+                  result = true;
+      		}  
+              else {
+                  System.out.println( "unsucessful deletion "); 
+              }      
+      	}catch (Exception e) {
+      		  e.printStackTrace();
+      	} 
+      	finally { 
+      		try {
+          		conn.close();
+      		}catch (Exception e) {  } 		
+      		
+      	}
+      	return result;
+      }
 
  }
  

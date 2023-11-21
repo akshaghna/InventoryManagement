@@ -35,6 +35,16 @@
     <servlet-name>showcatalogueitemsservlet</servlet-name>
     <servlet-class>im.processing.showcataloguesitemservlet</servlet-class>
   </servlet>
+  <servlet>
+   <display-name>addcitemsservlet</display-name>
+   <servlet-name>addcitemsservlet</servlet-name>
+   <servlet-class>im.processing.addcitemsservlet</servlet-class>
+  </servlet>
+   <servlet>
+  	<display-name>deletecitemsservlet</display-name>
+    <servlet-name>deletecitemsservlet</servlet-name>
+    <servlet-class>im.processing.deletecitemsservlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>loginservlet</servlet-name>
     <url-pattern>/</url-pattern>
@@ -58,5 +68,13 @@
   <servlet-mapping>
     <servlet-name>showcatalogueitemsservlet</servlet-name>
     <url-pattern>/showcatalogueitemsservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>addcitemsservlet</servlet-name>
+    <url-pattern>/addcitemsservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>deletecitemsservlet</servlet-name>
+    <url-pattern>/deletecitemsservlet</url-pattern>
   </servlet-mapping>
 </web-app>
