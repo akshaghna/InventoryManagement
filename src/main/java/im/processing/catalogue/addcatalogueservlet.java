@@ -1,4 +1,4 @@
-package im.processing;
+package im.processing.catalogue;
 
 import java.io.IOException;
 
@@ -21,18 +21,18 @@ public class addcatalogueservlet extends HttpServlet {
 		if(usernmae.isEmpty() || cataloguename.isEmpty() || season.isEmpty() || 
 				year<=0)
 		{
-			RequestDispatcher req = request.getRequestDispatcher("addcataloguefail.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogue/addcataloguefail.jsp");
 			req.include(request, response);
 		}
 		else
 		{
 			boolean result = DBUtils.createcatalogue(usernmae,cataloguename, year, season);
 			if(result) {
-				RequestDispatcher req = request.getRequestDispatcher("addcataloguesuccess.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogue/addcataloguesuccess.jsp");
 				req.forward(request, response);
 			}
 			else {
-				RequestDispatcher req = request.getRequestDispatcher("addcataloguefail.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogue/addcataloguefail.jsp");
 				req.forward(request, response);
 			}
 			}

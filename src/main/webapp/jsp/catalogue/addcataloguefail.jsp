@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>Add Catalogue failed</h1>
-<form action="addcatalogueservlet" method="post">
+<form action="/InventoryManagement/addcatalogueservlet" method="post">
 			<table style="with: 50%">
 				<tr>
 					<td>Catalogue Name</td>

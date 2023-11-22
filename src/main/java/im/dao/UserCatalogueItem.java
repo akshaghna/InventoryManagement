@@ -18,25 +18,33 @@ public class UserCatalogueItem {
 	int sizexxlsold;
 	
 	
+	@Override
+	public String toString() {
+		return "UserCatalogueItem [itemname=" + itemname + ", pcost=" + pcost + ", scost=" + scost + ", sizexsavail="
+				+ sizexsavail + ", sizexssold=" + sizexssold + ", sizesavail=" + sizesavail + ", sizessold=" + sizessold
+				+ ", sizemavail=" + sizemavail + ", sizemsold=" + sizemsold + ", sizelavail=" + sizelavail
+				+ ", sizelsold=" + sizelsold + ", sizexlavail=" + sizexlavail + ", sizexlsold=" + sizexlsold
+				+ ", sizexxlavail=" + sizexxlavail + ", sizexxlsold=" + sizexxlsold + "]";
+	}
 	public UserCatalogueItem(String itemname, int pcost, int scost,int sizexsavail, int sizexssold, int sizesavail, 
 			int sizessold,int sizemavail,int sizemsold,int sizelavail, int sizelsold, int sizexlavail, int sizexlsold,
-			int sizexxlavail, int sizexxlsold, int i) {
+			int sizexxlavail, int sizexxlsold) {
 		super();
 		this.itemname = itemname;
 		this.pcost = pcost;
 		this.scost = scost;
-		this.scost = sizexsavail;
-		this.scost = sizexssold;
-		this.scost = sizemavail;
-		this.scost = sizessold;
-		this.scost = sizemavail;
-		this.scost = sizemsold;
-		this.scost = sizelavail;
-		this.scost = sizelsold;
-		this.scost = sizexlavail;
-		this.scost = sizexlsold;
-		this.scost = sizexxlavail;
-		this.scost = sizexxlsold;
+		this.sizexsavail = sizexsavail;
+		this.sizexssold = sizexssold;
+		this.sizesavail = sizesavail;
+		this.sizessold = sizessold;
+		this.sizemavail = sizemavail;
+		this.sizemsold = sizemsold;
+		this.sizelavail = sizelavail;
+		this.sizelsold = sizelsold;
+		this.sizexlavail = sizexlavail;
+		this.sizexlsold = sizexlsold;
+		this.sizexxlavail = sizexxlavail;
+		this.sizexxlsold = sizexxlsold;
 	}
 	public String getItemname() {
 		return itemname;

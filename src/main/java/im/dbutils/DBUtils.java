@@ -14,7 +14,7 @@ public class DBUtils {
     public static Connection getConnection() throws Exception {
         String url = "jdbc:mysql://localhost:3306/OIM";
         String username = "admin";
-        String password = "admin1234";
+        String password = "admin123";
         Class.forName("com.mysql.cj.jdbc.Driver"); 
         return DriverManager.getConnection(url, username, password);
     }
@@ -70,7 +70,7 @@ public class DBUtils {
     		stmt = conn.createStatement();
     		String query = "insert into oim_useraccoutns values('"+
         		    username +"','"+ firstname +"','"+ lastname +"','"+ Address +"','"+ 
-    				emailid +"','"+ phoneno +"','"+ passwrd +"')";
+    				emailid +"',"+ phoneno +",'"+ passwrd +"')";
     		System.out.println(query);
     		int result1 = stmt.executeUpdate(query);
     		if (result1 ==1) {
@@ -121,36 +121,7 @@ public class DBUtils {
     	}
     	return catlogues;
     }
-    public static List<UserCatalogueItem> getCatalogueitems(String username,String category) {
-    	List<UserCatalogueItem> catItems = new ArrayList<UserCatalogueItem>();
-    	Connection conn=null;
-    	Statement stmt=null;
-    	ResultSet result1=null;
-    	try{
-    		conn = DBUtils.getConnection();
-    		stmt = conn.createStatement();
-    		String query = "select * from oim_inventory_category where category='" + category + "'and username='"+username+"')";
-    		System.out.println(query);
-    		result1 = stmt.executeQuery(query);
-    		while(result1.next()) {
-    			UserCatalogueItem catl = new UserCatalogueItem(result1.getString("itemname"), 
-    					result1.getInt("pcost"), result1.getInt("scost"),result1.getInt("sizexsavail"), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-    			catItems.add(catl);
-    		}
-    	}catch (Exception e) {
-    		  e.printStackTrace();
-    	} 
-    	finally { 
-    		try {
-    			result1.close();
-        		conn.close();
-    		}catch (Exception e) {  } 		
-    		
-    	}
-    	return catItems;
-    }
-
-    
+        
     public static boolean createcatalogue (String username,String cataloguename, 
    		 int year, String season){ 
        	boolean result = false;    	
@@ -210,7 +181,7 @@ public class DBUtils {
           	}
           	return result;
           }
-    public static boolean getCatalogueItem(String cataloguename,String itemname, int pcost, int scost, int sizexsavail, int sizexssold, int sizesavail, int sizessold, int sizemavail, int sizemsold, int sizelavail, int sizelsold, int sizexlavail, int sizexlsold, int sizexxlavail, int sizexxlsold) {
+    public static List<UserCatalogueItem> getCatalogueItem(String cataloguename,String username) {
     	ArrayList<UserCatalogueItem> catItems = new ArrayList<UserCatalogueItem>();
     	Connection conn=null;
     	Statement stmt=null;
@@ -218,16 +189,17 @@ public class DBUtils {
     	try{
     		conn = DBUtils.getConnection();
     		stmt = conn.createStatement();
-    		String query = "select * from oim_inventory_items where category='" + cataloguename + "'and itemname='"+itemname+"')";
+    		String query = "select * from oim_inventory_items where category='" + cataloguename + "'and username='"+username+"'";
     		System.out.println(query);
     		result1 = stmt.executeQuery(query);
     		while(result1.next()) {
-    			UserCatalogueItem catl = new UserCatalogueItem(result1.getString("itemname"), 
-    					result1.getInt("pcost"), result1.getInt("scost"), result1.getInt("sizexsavail"),result1.getInt("sizexsavail"),
-    					result1.getInt("sizexssold"),result1.getInt("sizesavail"),result1.getInt("sizessold"),
-    					result1.getInt("sizemavail"),result1.getInt("sizemsold"),result1.getInt("sizelavail"),
-    					result1.getInt("sizelsold"),result1.getInt("sizexlavail"),result1.getInt("sizexlsold"),
-    					result1.getInt("sizexxlavail"),result1.getInt("sizexxlsold"));
+    			UserCatalogueItem catl = new UserCatalogueItem(result1.getString("ITEMNAME"), 
+    					result1.getInt("PRODUCTION_COST"), result1.getInt("SELLING_COST"), result1.getInt("SIZEXS_AVAIL"),
+    					result1.getInt("SIZEXS_SOLD"),
+    					result1.getInt("SIZES_AVAIL"),result1.getInt("SIZES_SOLD"),result1.getInt("SIZEM_AVAIL"),
+    					result1.getInt("SIZEM_SOLD"),result1.getInt("SIZEL_AVAIL"),result1.getInt("SIZEL_SOLD"),
+    					result1.getInt("SIZEXL_AVAIL"),result1.getInt("SIZEXL_SOLD"),result1.getInt("SIZEXXL_AVAIL"),
+    					result1.getInt("SIZEXXL_SOLD"));
     			catItems.add(catl);
     		}
     	}catch (Exception e) {
@@ -242,8 +214,8 @@ public class DBUtils {
     	}
     	return catItems;
     }
-    public static boolean addcitems (String cataloguename,String itemname, int scost, int pcost,int sizexsavail,int sizexssold
-    		,int sizesavail, int sizessold, int sizemavail, int sizemsold, int sizelavail, int sizelsold, int sizexlavail, 
+    public static boolean addcitems (String username, String cataloguename,String itemname, int scost,
+    		int pcost,int sizexsavail,int sizexssold, int sizesavail, int sizessold, int sizemavail, int sizemsold, int sizelavail, int sizelsold, int sizexlavail, 
     		int sizexlsold, int sizexxlavail, int sizexxlsold){ 
           	boolean result = false;    	
           	Connection conn=null;
@@ -251,9 +223,10 @@ public class DBUtils {
           	try{
           		conn = DBUtils.getConnection();
           		stmt = conn.createStatement();
-          		String query = "insert into oim_inventory_category values('"+
-              		    itemname +"','"+ scost +"',"+ pcost +",'"+sizexsavail+"','"+sizexssold+"','"+sizesavail+"','"+
-          				sizessold+"','"+ sizemavail+"','"+sizemsold+"','"+sizelavail+"','"+sizelsold+"','"+sizexlavail+"','"+sizexlsold+"','"+sizexxlavail+"','"+sizexxlsold+');"
+          		String query = "insert into oim_inventory_items values('"+ username + "','" + cataloguename + "','"+
+              		    itemname +"',"+ scost +","+ pcost +","+sizexsavail+","+sizexssold+","+sizesavail+","+
+          				sizessold+","+ sizemavail+","+sizemsold+","+sizelavail+","+sizelsold+
+          				","+sizexlavail+","+sizexlsold+","+sizexxlavail+","+sizexxlsold + ");";
           		System.out.println(query);
           		int result1 = stmt.executeUpdate(query);
           		if (result1 ==1) {

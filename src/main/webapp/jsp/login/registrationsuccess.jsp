@@ -4,14 +4,11 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ogha show Catalogue</title>
+<title>Ogha Registration Form</title>
 </head>
 <body>
-<h1>Catalogue shown successfullt</h1>
-<form action="showcatalogueitemsservlet" method="post">
-			<table style="with: 50%">
-			</table>
-			<input type="Submit" value="show" /></form>
-			<a href="/InventoryManagement/userhomeservlet"><button>Back</button></a>
+<h1>Ogha Register Form</h1>
+<h1>Registration Successful</h1>
+<a href="/InventoryManagement/jsp/login/loginform.jsp"><button>Home</button></a>
 </body>
 </html>

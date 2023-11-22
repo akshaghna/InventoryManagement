@@ -28,7 +28,7 @@
 <tr>
 
     <c:set var="durl" value="/InventoryManagement/deletecatalogue?cataloguename=${ucat.catalogueName}" />
-    <c:set var="curl" value="/InventoryManagement/showcatalogue?cataloguename=${ucat.catalogueName}" />
+    <c:set var="curl" value="/InventoryManagement/showcatalogueitemsservlet?cataloguename=${ucat.catalogueName}" />
    <td><c:out value="${ucat.catalogueName}"/></td>
    <td><c:out value="${ucat.year}"/></td>
   <td><c:out value="${ucat.season}"/></td>
@@ -38,8 +38,8 @@
 </tr>
 </c:forEach>
 </table>
-<a href="addcatalogue.jsp"><button>Add Catalogue</button></a>
-<a href="loginform.jsp"><button>LogOut</button></a>
+<a href="/InventoryManagement/jsp/catalogue/addcatalogue.jsp"><button>Add Catalogue</button></a>
+<a href="/InventoryManagement/jsp/login/loginform.jsp"><button>LogOut</button></a>
 
 </body>
 </html>

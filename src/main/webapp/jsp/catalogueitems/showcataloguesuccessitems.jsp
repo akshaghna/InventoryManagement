@@ -4,15 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ogha Delete Catalogue</title>
+<title>Ogha show Catalogue</title>
 </head>
 <body>
-<h1>Delete Catalogue </h1>
-//<form action="deletecatalogueservlet" method="post">
+<h1>Catalogue shown successful</h1>
+<form action="showcatalogueitemsservlet" method="post">
 			<table style="with: 50%">
-				
 			</table>
-			<input type="Submit" value="Delete" /></form>
+			<input type="Submit" value="show" /></form>
 			<a href="/InventoryManagement/userhomeservlet"><button>Back</button></a>
 </body>
 </html>

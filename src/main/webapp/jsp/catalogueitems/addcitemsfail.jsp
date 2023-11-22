@@ -7,12 +7,12 @@
 <title>Ogha Add Catalogue Items</title>
 </head>
 <body>
-<h1>Add Catalogue items</h1>
+<h1>Add Catalogue items fail</h1>
 <form action="addcitemsservlet" method="post">
 			<table style="with: 50%">
 				<tr>
 					<td>Item Name</td>
-					<td><input type="text" name="ItemName" /></td>
+					<td><input type="text" name="itemname" /></td>
 				</tr>
 				<tr>
 					<td>production cost</td>
@@ -23,51 +23,51 @@
 					<td><input type="text" name="scost" /></td>
 				</tr>
 				<tr>
-					<td>size xs available</td>
+					<td>size XS available</td>
 					<td><input type="text" name="sizexsavail" /></td>
 				</tr>
 				<tr>
-					<td>sizexssold</td>
+					<td>size XS sold</td>
 					<td><input type="text" name="sizexssold" /></td>
 				</tr>
 				<tr>
-					<td>size s avail</td>
+					<td>size S available</td>
 					<td><input type="text" name="sizesavail" /></td>
 				</tr>
 				<tr>
-					<td>size s sold</td>
+					<td>size S sold</td>
 					<td><input type="text" name="sizessold" /></td>
 				</tr>
 				<tr>
-					<td>sizemavail</td>
+					<td>size M available</td>
 					<td><input type="text" name="sizemavail" /></td>
 				</tr>
 				<tr>
-					<td>sizemsold</td>
+					<td>size M sold</td>
 					<td><input type="text" name="sizemsold" /></td>
 				</tr>
 				<tr>
-					<td>sizelavail</td>
+					<td>size L available</td>
 					<td><input type="text" name="sizelavail" /></td>
 				</tr>
 				<tr>
-					<td>sizelsold</td>
+					<td>size L sold</td>
 					<td><input type="text" name="sizelsold" /></td>
 				</tr>
 				<tr>
-					<td>sizexlavail</td>
+					<td>size XL available</td>
 					<td><input type="text" name="sizexlavail" /></td>
 				</tr>
 				<tr>
-					<td>selling sizexlsold</td>
+					<td>size XL sold</td>
 					<td><input type="text" name="sizexlsold" /></td>
 				</tr>
 				<tr>
-					<td>selling sizexxlsold</td>
+					<td>size XXL available</td>
 					<td><input type="text" name="sizexxlsold" /></td>
 				</tr>
 				<tr>
-					<td>selling sizexxlsold</td>
+					<td>size XXL sold</td>
 					<td><input type="text" name="sizexxlsold" /></td>
 				</tr>
 			</table>

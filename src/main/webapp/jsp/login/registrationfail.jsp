@@ -8,7 +8,8 @@
 </head>
 <body>
 <h1>Ogha Register Form</h1>
-<form action="registerservlet" method="post">
+<form action="/InventoryManagement/registerservlet" method="post">
+			<h>Registration Failed, Try Again</h>
 			<table style="with: 50%">
 				<tr>
 					<td>First Name</td>
@@ -39,6 +40,6 @@
 					<td><input type="text" name="contact" /></td>
 				</tr></table>
 			<input type="submit" value="Submit" /></form>
-			<a href="loginform"><button>Home</button></a>
+			<a href="/InventoryManagement/jsp/login/loginform"><button>Home</button></a>
 </body>
 </html>

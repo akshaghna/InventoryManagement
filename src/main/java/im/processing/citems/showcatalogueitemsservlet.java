@@ -1,7 +1,9 @@
-package im.processing;
+package im.processing.citems;
 
 import java.io.IOException;
+import java.util.List;
 
+import im.dao.UserCatalogueItem;
 import im.dbutils.DBUtils;
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -16,20 +18,18 @@ public class showcatalogueitemsservlet extends HttpServlet {
 		String userName = (String)request.getSession().getAttribute("username");
 		System.out.println ("username:" + userName + "and cataloguename:" + catalogueName);
 		if(userName.isEmpty() || catalogueName.isEmpty()){
-			RequestDispatcher req = request.getRequestDispatcher("showcataloguefail.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogueitems/showcataloguefail.jsp");
 			req.include(request, response);
 		}
 		else
 		{
-			boolean result = DBUtils.showitemscatalogue(userName,catalogueName);
-			if(result) {
-				RequestDispatcher req = request.getRequestDispatcher("showcataloguesuccess.jsp");
-				req.forward(request, response);
-			}
-			else {
-				RequestDispatcher req = request.getRequestDispatcher("showcataloguefail.jsp");
-				req.forward(request, response);
-			}
+			List<UserCatalogueItem> ucatItems= DBUtils.getCatalogueItem(catalogueName, userName);
+			RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogueitems/showcatalogueitems.jsp");
+			request.getSession().setAttribute("cataloguename", catalogueName);
+			System.out.println("items returned:" + ucatItems);
+			request.getSession().setAttribute("ucatitems", ucatItems);
+			req.forward(request, response);
+			
 		}
 	}
 }

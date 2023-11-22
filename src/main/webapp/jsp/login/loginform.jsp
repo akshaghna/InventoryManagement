@@ -20,6 +20,6 @@
 			</tr>
 		</table>
 		<input type="submit" value="Login" /></form>
-		<a href="register.jsp"><button>Register</button></a>
+		<a href="/InventoryManagement/jsp/login/register.jsp"><button>Register</button></a>
 </body>
 </html>

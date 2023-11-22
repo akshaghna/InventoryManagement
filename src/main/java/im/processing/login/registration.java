@@ -1,4 +1,4 @@
-package im.processing;
+package im.processing.login;
 import java.io.IOException;
 
 import im.dbutils.DBUtils;
@@ -29,18 +29,18 @@ public class registration extends HttpServlet {
 		if(first_name.isEmpty() || last_name.isEmpty() || username.isEmpty() || 
 				password.isEmpty() || address.isEmpty() || contact.isEmpty() || emailid.isEmpty())
 		{
-			RequestDispatcher req = request.getRequestDispatcher("registrationfail.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("/jsp/login/registrationfail.jsp");
 			req.include(request, response);
 		}
 		else
 		{
 			boolean result = DBUtils.accountcreation(first_name, last_name, username, emailid, address, contact, password);
 			if(result) {
-				RequestDispatcher req = request.getRequestDispatcher("registrationsuccess.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("/jsp/login/registrationsuccess.jsp");
 				req.forward(request, response);
 			}
 			else {
-				RequestDispatcher req = request.getRequestDispatcher("registrationfail.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("/jsp/login/registrationfail.jsp");
 				req.forward(request, response);
 			}
 			}

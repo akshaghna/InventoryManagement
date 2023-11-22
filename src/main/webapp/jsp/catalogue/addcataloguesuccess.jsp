@@ -7,8 +7,8 @@
 <title>Ogha Add Catalogue</title>
 </head>
 <body>
-<h1>Add Catalogue</h1>
-<form action="addcatalogueservlet" method="post">
+<h1>Added Catalogue successfully</h1>
+<form action="/InventoryManagement/addcatalogueservlet" method="post">
 			<table style="with: 50%">
 				<tr>
 					<td>Catalogue Name</td>

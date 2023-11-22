@@ -1,4 +1,4 @@
-package im.processing;
+package im.processing.citems;
 
 import java.io.IOException;
 
@@ -16,18 +16,18 @@ public class deletecitemsservlet extends HttpServlet {
 		String itemname = (String)request.getSession().getAttribute("itemname");
 		System.out.println ("itemname:" + itemname + "and cataloguename:" + cataloguename);
 		if(itemname.isEmpty() || cataloguename.isEmpty()){
-			RequestDispatcher req = request.getRequestDispatcher("deletecitemsfail.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogueitems/deletecitemsfail.jsp");
 			req.include(request, response);
 		}
 		else
 		{
 			boolean result = DBUtils.deletecitems(itemname,cataloguename);
 			if(result) {
-				RequestDispatcher req = request.getRequestDispatcher("deletecitemssuccess.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogueitems/deletecitemssuccess.jsp");
 				req.forward(request, response);
 			}
 			else {
-				RequestDispatcher req = request.getRequestDispatcher("deletecitemsfail.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogueitems/deletecitemsfail.jsp");
 				req.forward(request, response);
 			}
 		}

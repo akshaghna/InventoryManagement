@@ -1,4 +1,4 @@
-package im.processing;
+package im.processing.login;
 
 import jakarta.servlet.ServletException;
 import im.dao.UserCatalogue;
@@ -29,9 +29,10 @@ public class login extends HttpServlet {
 		// TODO Auto-generated method stub
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
+		System.out.println("Recevied login request for " + username);
 		if(username.isEmpty() || password.isEmpty() )
 		{
-			RequestDispatcher req = request.getRequestDispatcher("loginerror.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("/jsp/login/loginerror.jsp");
 			req.include(request, response);
 		}
 		else
@@ -44,7 +45,7 @@ public class login extends HttpServlet {
 		    	req.forward(request, response);
 		    }
 		    else {
-			RequestDispatcher req = request.getRequestDispatcher("loginerror.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("/jsp/login/loginerror.jsp");
 			req.include(request, response);
 		    }
 		}
@@ -52,7 +53,7 @@ public class login extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
 	{
-		RequestDispatcher req = request.getRequestDispatcher("loginform.jsp");
+		RequestDispatcher req = request.getRequestDispatcher("/jsp/login/loginform.jsp");
 		req.include(request, response);
 	}
 }

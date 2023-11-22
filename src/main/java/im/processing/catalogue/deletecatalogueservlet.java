@@ -1,4 +1,4 @@
-package im.processing;
+package im.processing.catalogue;
 
 import java.io.IOException;
 
@@ -16,18 +16,18 @@ public class deletecatalogueservlet extends HttpServlet {
 		String userName = (String)request.getSession().getAttribute("username");
 		System.out.println ("username:" + userName + "and cataloguename:" + catalogueName);
 		if(userName.isEmpty() || catalogueName.isEmpty()){
-			RequestDispatcher req = request.getRequestDispatcher("deletecataloguefail.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogue/deletecataloguefail.jsp");
 			req.include(request, response);
 		}
 		else
 		{
 			boolean result = DBUtils.deletecatalogue(userName,catalogueName);
 			if(result) {
-				RequestDispatcher req = request.getRequestDispatcher("deletecataloguesuccess.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogue/deletecataloguesuccess.jsp");
 				req.forward(request, response);
 			}
 			else {
-				RequestDispatcher req = request.getRequestDispatcher("deletecataloguefail.jsp");
+				RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogue/deletecataloguefail.jsp");
 				req.forward(request, response);
 			}
 		}

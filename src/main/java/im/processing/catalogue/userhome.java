@@ -1,4 +1,4 @@
-package im.processing;
+package im.processing.catalogue;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,7 +23,7 @@ public class userhome extends HttpServlet {
 		String username = (String)request.getSession().getAttribute("username");
 		List<UserCatalogue> ucats = DBUtils.getCatalogues(username);
 		request.getSession().setAttribute("ucats", ucats);
-		RequestDispatcher req = request.getRequestDispatcher("userhome.jsp");
+		RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogue/userhome.jsp");
 		req.include(request, response);
 	}
 
@@ -33,7 +33,7 @@ public class userhome extends HttpServlet {
 		String username = (String)request.getSession().getAttribute("username");
 		List<UserCatalogue> ucats = DBUtils.getCatalogues(username);
 		request.getSession().setAttribute("ucats", ucats);
-		RequestDispatcher req = request.getRequestDispatcher("userhome.jsp");
+		RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogue/userhome.jsp");
 		req.include(request, response);
 	}
 }
