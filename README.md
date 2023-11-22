@@ -17,7 +17,7 @@
 ###Create database with name "OIM"
 ###Create username with name and password "admin/admin1234"
 ###Grant all permissions to admin user on OIM database
-#### Ex- CREATE DATABASE OIM;
+### Ex- CREATE DATABASE OIM;
 ####CREATE USER 'admin' IDENTIFIED BY 'admin123';
 ####GRANT ALL PRIVILEGES ON OIM.* TO 'admin'@'localhost' WITH GRANT OPTION;
 ###Run database.sql from InventoryManagement/src/webapp folder
