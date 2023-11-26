@@ -5,21 +5,19 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ogha Login Form</title>
+<style><%@include file="/css/im1.css"%></style>
 </head>
 <body>
+<header>Ogha Inventory Management System - Login/Register</header>
+<div class="center">
 <form action="loginservlet" method="Post">
-		<table style="with: 50%">
-
-			<tr>
-				<td>UserName</td>
-				<td><input type="text" name="username" /></td>
-			</tr>
-				<tr>
-				<td>Password</td>
-				<td><input type="password" name="password" /></td>
-			</tr>
-		</table>
-		<input type="submit" value="Login" /></form>
-		<a href="/InventoryManagement/jsp/login/register.jsp"><button>Register</button></a>
+	<label>User Name</label>
+	<input type="text" name="username" />
+	<label>Password</label>
+	<input type="password" name="password" />
+	<input type="submit" value="Login" />
+</form>
+<input type="button" onclick="location.href='/InventoryManagement/jsp/login/register.jsp';" value="Register" />
+</div>
 </body>
 </html>

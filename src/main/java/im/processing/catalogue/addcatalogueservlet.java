@@ -15,10 +15,16 @@ public class addcatalogueservlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		String usernmae = (String)request.getSession().getAttribute("username");
 		String cataloguename = request.getParameter("catalogueName");
-		int year = Integer.parseInt(request.getParameter("year"));
+		String years = request.getParameter("year");
+		int year =0;
+		try {
+			 year = (years != null && !years.isEmpty()) ? Integer.parseInt(years):0;
+		}
+		catch(Exception e) {}
 		String season = request.getParameter("season");
 		
-		if(usernmae.isEmpty() || cataloguename.isEmpty() || season.isEmpty() || 
+		if(usernmae == null || usernmae.isEmpty() || cataloguename == null || 
+				cataloguename.isEmpty() || season==null || season.isEmpty() || 
 				year<=0)
 		{
 			RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogue/addcataloguefail.jsp");

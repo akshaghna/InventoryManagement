@@ -12,10 +12,10 @@ import jakarta.servlet.http.HttpServletResponse;
 public class deletecitemsservlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String cataloguename = (String)request.getParameter("cataloguename");
-		String itemname = (String)request.getSession().getAttribute("itemname");
+		String cataloguename = (String)request.getSession().getAttribute("cataloguename");
+		String itemname = (String)request.getParameter("itemname");
 		System.out.println ("itemname:" + itemname + "and cataloguename:" + cataloguename);
-		if(itemname.isEmpty() || cataloguename.isEmpty()){
+		if(itemname == null ||itemname.isEmpty() || cataloguename.isEmpty()){
 			RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogueitems/deletecitemsfail.jsp");
 			req.include(request, response);
 		}

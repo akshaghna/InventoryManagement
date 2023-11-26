@@ -37,6 +37,7 @@
 
 </tr>
 <c:forEach items="${ucatitems}" var="ucatitem" varStatus="loop">
+<c:set var="diurl" value="/InventoryManagement/deletecitemsservlet?itemname=${ucatitem.itemname}" />
 <tr>
    <td><c:out value="${ucatitem.itemname}"></c:out></td>
    <td><c:out value="${ucatitem.pcost}"></c:out></td>
@@ -53,14 +54,14 @@
    <td><c:out value="${ucatitem.sizexlsold}"/></td>
    <td><c:out value="${ucatitem.sizexxlavail}"/></td>
    <td><c:out value="${ucatitem.sizexxlsold}"/></td>
-   <c:set var="diurl" value="/InventoryManagement/deletecitemsservlet?itemname=${cat.itemName}" />
+   <td><a href="${diurl}"><button>Delete</button></a></td>
+
    
 </tr>
 </c:forEach>
 </table>
 <a href="/InventoryManagement/jsp/catalogueitems/addcitems.jsp"><button>Add Item</button></a>
-<a href="/InventoryManagement/jsp/catalogueitems/deletecitems.jsp"><button>Delete Item</button></a>
-<a href="/InventoryManagement/jsp/login.loginform.jsp"><button>LogOut</button></a>
+<a href="/InventoryManagement/jsp/login/loginform.jsp"><button>LogOut</button></a>
 <a href="/InventoryManagement/jsp/catalogue/userhome.jsp"><button>Back</button></a>
 
 </body>

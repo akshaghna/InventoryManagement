@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -71,7 +73,12 @@
 					<td><input type="text" name="sizexxlsold" /></td>
 				</tr>
 			</table>
-			<input type="Submit" value="Add" /></form>
-			<a href="/InventoryManagement/showcatalogueitemservlet"><button>Back</button></a>
+			<input type="Submit" value="Add" />
+		</form>
+		<c:set var="cshowurl" value="/InventoryManagement/showcatalogueitemsservlet?cataloguename=${sessionScope.cataloguename}" />
+		<a href="${cshowurl}"><button>Back</button></a>
+		<a href="/InventoryManagement/jsp/login/loginform.jsp"><button>LogOut</button></a>
+			
+		
 </body>
 </html>

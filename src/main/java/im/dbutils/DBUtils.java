@@ -254,8 +254,8 @@ public class DBUtils {
       	try{
       		conn = DBUtils.getConnection();
       		stmt = conn.createStatement();
-      		String query = "delete from oim_inventory_inventory where category='"+
-          		   cataloguename +"' and itemname='"+itemname+"'";
+      		String query = "delete from oim_inventory_items where category='"+
+          		   cataloguename + "' and itemname='"+itemname+"'";
       		System.out.println(query);
       		int result1 = stmt.executeUpdate(query);
       		if (result1>0) {
