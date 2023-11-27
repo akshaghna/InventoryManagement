@@ -7,39 +7,28 @@
 <title>Ogha Registration Form</title>
 <style><%@include file="/css/im1.css"%></style>
 </head>
-<body>
+<body class="bg">
 <header>Ogha Inventory Management System - Register Account</header>
 
 <form action="/InventoryManagement/registerservlet" method="post">
- <div class="form-column">
+ <div class="center">
 	<label>First Name</label>
 	<input type="text" name="first_name" />
-	<br>
 	<label>Last Name</label>
 	<input type="text" name="last_name" />
-	<br>
 	<label>UserName</label>
 	<input type="text" name="username" />
-	<br>
 	<label>Password</label>
 	<input type="password" name="password" />
- </div>
- <div class="form-column">
-	<label>Address</label>
+ 	<label>Address</label>
 	<input type="text" name="address" />
-	<br>
 	<label>EmailID</label>
 	<input type="text" name="emailid" />
-	<br>
 	<label>Contact No</label>
 	<input type="text" name="contact" />
-</div>
-<div class="center">
 	<input type="submit" value="Submit" />
-</div>
 </form>
-<div class="center">
-<input type="button" onclick="location.href='/InventoryManagement/jsp/login/loginform';" value="Home" />
+<input type="button" onclick="location.href='/InventoryManagement/jsp/login/loginform.jsp';" value="Home" />
 </div>
 </body>
 </html>

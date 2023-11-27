@@ -5,12 +5,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ogha Login Form</title>
-<style><%@include file="/css/im1.css"%></style>
+ <style><%@include file="/css/im1.css"%></style>
 </head>
-<body>
+<body class="bg">
 <header>Ogha Inventory Management System - Login/Register</header>
 <div class="center">
-<form action="loginservlet" method="Post">
+<form action="/InventoryManagement/login" method="Post">
 	<label>User Name</label>
 	<input type="text" name="username" />
 	<label>Password</label>

@@ -2,7 +2,7 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:web="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="6.0">
   <display-name></display-name>
   <welcome-file-list>
-    <welcome-file>InventoryManarement/jsp/login/loginform.jsp</welcome-file>
+    <welcome-file>InventoryManagement/jsp/login/loginform.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
     <description></description>
@@ -47,7 +47,7 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>loginservlet</servlet-name>
-    <url-pattern>/</url-pattern>
+    <url-pattern>/login</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
     <servlet-name>registerservlet</servlet-name>

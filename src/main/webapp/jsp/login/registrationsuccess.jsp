@@ -5,10 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ogha Registration Form</title>
+<style><%@include file="/css/im1.css"%></style>
 </head>
-<body>
-<h1>Ogha Register Form</h1>
-<h1>Registration Successful</h1>
-<a href="/InventoryManagement/jsp/login/loginform.jsp"><button>Home</button></a>
+<body class="bg">
+<header>Ogha Inventory Management System - Register Account</header>
+<label class="success">Registration Successful</label>
+<div class="center">
+<input type="button" onclick="location.href='/InventoryManagement/jsp/login/loginform.jsp';" value="Home" />
+</div>
 </body>
 </html>

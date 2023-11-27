@@ -2,18 +2,16 @@
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<style>
-<b <button type="button">try again</button></b>
-</style>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Error logging</title>
+<title>Ogha Error logging</title>
+<style><%@include file="/css/im1.css"%></style>
 </head>
-<body>
-	<table style="with: 50%">
-	<tr><td>
-	<a>Error logging, try again</a></td></tr>
-<tr></tr><tr><td></td><td></td><td><a href="/InventoryManagement/jsp/login/loginform.jsp"><button>Try Again</button></a></td></tr>
-</table>
+<body class="bg">
+<header>Ogha Inventory Management System - Login Failed</header>
+<div class="center">
+	<label class="warning">Error logging, try again</label>
+<input type="button" onclick="location.href='/InventoryManagement/jsp/login/loginform.jsp';" value="Home" />
+</div>
 </body>
 </html>
