@@ -45,6 +45,11 @@
     <servlet-name>deletecitemsservlet</servlet-name>
     <servlet-class>im.processing.citems.deletecitemsservlet</servlet-class>
   </servlet>
+  <servlet>
+  	<display-name>editcitemsservlet</display-name>
+    <servlet-name>editcitemsservlet</servlet-name>
+    <servlet-class>im.processing.citems.editcitemsservlet</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>loginservlet</servlet-name>
     <url-pattern>/login</url-pattern>
@@ -76,5 +81,9 @@
   <servlet-mapping>
     <servlet-name>deletecitemsservlet</servlet-name>
     <url-pattern>/deletecitemsservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>editcitemsservlet</servlet-name>
+    <url-pattern>/editcitemsservlet</url-pattern>
   </servlet-mapping>
 </web-app>

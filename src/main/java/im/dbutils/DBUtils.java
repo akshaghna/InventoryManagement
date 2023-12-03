@@ -235,7 +235,7 @@ public class DBUtils {
           		conn = DBUtils.getConnection();
           		stmt = conn.createStatement();
           		String query = "insert into oim_inventory_items values('"+ username + "','" + cataloguename + "','"+
-              		    itemname +"',"+ scost +","+ pcost +","+sizexsavail+","+sizexssold+","+sizesavail+","+
+              		    itemname +"',"+ pcost +","+ scost +","+sizexsavail+","+sizexssold+","+sizesavail+","+
           				sizessold+","+ sizemavail+","+sizemsold+","+sizelavail+","+sizelsold+
           				","+sizexlavail+","+sizexlsold+","+sizexxlavail+","+sizexxlsold + ");";
           		System.out.println(query);
@@ -287,6 +287,41 @@ public class DBUtils {
       	}
       	return result;
       }
+    
+    public static boolean editcitem (String username, String cataloguename,String itemname, int pcost,
+    		int scost,int sizexsavail,int sizexssold, int sizesavail, int sizessold, int sizemavail, int sizemsold, int sizelavail, int sizelsold, int sizexlavail, 
+    		int sizexlsold, int sizexxlavail, int sizexxlsold){ 
+          	boolean result = false;    	
+          	Connection conn=null;
+          	Statement stmt=null;
+          	try{
+          		conn = DBUtils.getConnection();
+          		stmt = conn.createStatement();
+          		String query = "update oim_inventory_items set selling_cost="+ scost +",production_cost="+ pcost +
+          				",sizexs_avail="+sizexsavail+",sizexs_sold="+sizexssold+",sizes_avail="+sizesavail+",sizes_sold="+
+          				sizessold+",sizem_avail="+ sizemavail+",sizem_sold="+sizemsold+",sizel_avail="+sizelavail+",sizel_sold="+sizelsold+
+          				",sizexl_avail="+sizexlavail+",sizexl_sold="+sizexlsold+",sizexxl_avail="+sizexxlavail+",sizexxl_sold="+sizexxlsold + 
+          				" where username='"+ username + "' and category='"+ cataloguename +"' and itemname='" + itemname + "';";
+          		System.out.println(query);
+          		int result1 = stmt.executeUpdate(query);
+          		if (result1 ==1) {
+                      System.out.println("successfully updated citem"); 
+                      result = true;
+          		}  
+                  else {
+                      System.out.println( "unsucessful update of citem "); 
+                  }      
+          	}catch (Exception e) {
+          		  e.printStackTrace();
+          	} 
+          	finally { 
+          		try {
+              		conn.close();
+          		}catch (Exception e) {  } 		
+          		
+          	}
+          	return result;
+          }
 
  }
  

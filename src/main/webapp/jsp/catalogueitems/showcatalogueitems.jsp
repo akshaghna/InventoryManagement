@@ -4,7 +4,6 @@
 <%@ page import="java.io.*,java.util.*"%>
 <%@ page import="jakarta.servlet.*" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -16,11 +15,12 @@
 <body class="bg">
 <header>Ogha Inventory Management System - User Catalogue Items</header>
 <table class="center">
-<% List<UserCatalogueItem> ucatitems = (List<UserCatalogueItem>)session.getAttribute("ucatitems");%>
+<% List<UserCatalogueItem> ucatitems = (List<UserCatalogueItem>)session.getAttribute("ucatitems");
+session.setAttribute("citemAction", "NONE");%>
 <tr>
    <th>Item Name</th>
    <th>Production cost</th>
-   <th>Selling price</th>
+   <th>Selling cost</th>
    <th>Size XS Available</th>
    <th>Size XS Sold</th>
    <th>Size S Available</th>
@@ -37,6 +37,7 @@
 </tr>
 <c:forEach items="${ucatitems}" var="ucatitem" varStatus="loop">
 <c:set var="diurl" value="/InventoryManagement/deletecitemsservlet?itemname=${ucatitem.itemname}" />
+<c:set var="editiurl" value="/InventoryManagement/jsp/catalogueitems/editcitem.jsp?itemname=${ucatitem.itemname}" />
 <tr>
    <td><c:out value="${ucatitem.itemname}"></c:out></td>
    <td><c:out value="${ucatitem.pcost}"></c:out></td>
@@ -53,7 +54,9 @@
    <td><c:out value="${ucatitem.sizexlsold}"/></td>
    <td><c:out value="${ucatitem.sizexxlavail}"/></td>
    <td><c:out value="${ucatitem.sizexxlsold}"/></td>
-   <td><input type="button" onclick="location.href='${diurl}';" value="Delete" /></td>   
+   <td>
+   		<input type="button" onclick="location.href='${editiurl}';" value="Edit" />
+   		<input type="button" onclick="location.href='${diurl}';" value="Delete" /></td>   
 </tr>
 </c:forEach>
 </table>
