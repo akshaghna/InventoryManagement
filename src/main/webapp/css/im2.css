@@ -2,21 +2,22 @@
 
 table {
 	table-layout: fixed;
-    width: 100%;
+    width: 200px;
 }
 
 td, th {
   border: 1px solid #ddd;
-  padding: 8px;
+  padding: 2px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 13px;
+  font-size: 10px;
   text-align: center;
 }
 
 tr {
 	background-color: rgb(147, 202, 202);
 	font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 13px;
+    font-size: 10px;
+    font-weight: bold;
 }
 
 tr:hover {background-color: #ddd;}
@@ -25,12 +26,22 @@ th {
   text-align: center;
   background-color: rgb(45, 138, 80);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 13px;
+  font-size: 10px;
   color: white;
-  width: 150px;
+  width: 70px;
+  font-weight: bold;
 }
 
 input[type=text], select {	
+  width: 100%;
+  padding: 8px 16px;
+  margin: 1px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+input[type=number], select {	
   width: 100%;
   padding: 8px 16px;
   margin: 1px 0;

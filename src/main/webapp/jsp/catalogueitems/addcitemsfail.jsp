@@ -7,77 +7,51 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ogha Add Catalogue Items</title>
+<style><%@include file="/css/im2.css"%></style>
 </head>
-<body>
-<h1>Add Catalogue items fail</h1>
-<form action="addcitemsservlet" method="post">
-			<table style="with: 50%">
-				<tr>
-					<td>Item Name</td>
-					<td><input type="text" name="itemname" /></td>
-				</tr>
-				<tr>
-					<td>production cost</td>
-					<td><input type="number" name="pcost" /></td>
-				</tr>
-				<tr>
-					<td>selling cost</td>
-					<td><input type="text" name="scost" /></td>
-				</tr>
-				<tr>
-					<td>size XS available</td>
-					<td><input type="text" name="sizexsavail" /></td>
-				</tr>
-				<tr>
-					<td>size XS sold</td>
-					<td><input type="text" name="sizexssold" /></td>
-				</tr>
-				<tr>
-					<td>size S available</td>
-					<td><input type="text" name="sizesavail" /></td>
-				</tr>
-				<tr>
-					<td>size S sold</td>
-					<td><input type="text" name="sizessold" /></td>
-				</tr>
-				<tr>
-					<td>size M available</td>
-					<td><input type="text" name="sizemavail" /></td>
-				</tr>
-				<tr>
-					<td>size M sold</td>
-					<td><input type="text" name="sizemsold" /></td>
-				</tr>
-				<tr>
-					<td>size L available</td>
-					<td><input type="text" name="sizelavail" /></td>
-				</tr>
-				<tr>
-					<td>size L sold</td>
-					<td><input type="text" name="sizelsold" /></td>
-				</tr>
-				<tr>
-					<td>size XL available</td>
-					<td><input type="text" name="sizexlavail" /></td>
-				</tr>
-				<tr>
-					<td>size XL sold</td>
-					<td><input type="text" name="sizexlsold" /></td>
-				</tr>
-				<tr>
-					<td>size XXL available</td>
-					<td><input type="text" name="sizexxlsold" /></td>
-				</tr>
-				<tr>
-					<td>size XXL sold</td>
-					<td><input type="text" name="sizexxlsold" /></td>
-				</tr>
-			</table>
-			<input type="Submit" value="Add" />
-		</form>
-		<c:set var="cshowurl" value="/InventoryManagement/showcatalogueitemsservlet?cataloguename=${sessionScope.cataloguename}" />
-		<a href="${cshowurl}"><button>Back</button></a>
-		<a href="/InventoryManagement/jsp/login/loginform.jsp"><button>LogOut</button></a>
-		
+<body class="bg">
+<header>Ogha Inventory Management System - Add Catalogue Items</header>
+<label class="warning">Added Catalogue Items Failed, Try again</label>
+<div class="center">
+<form action="/InventoryManagement/addcitemsservlet" method="post">
+	<label>Item Name</label>
+	<input type="text" name="itemname" />
+	<label>production cost</label>
+	<input type="number" name="pcost" />
+	<label>selling cost</label>
+	<input type="number" name="scost" />
+	<label>size XS available</label>
+	<input type="number" name="sizexsavail" />
+	<label>size XS sold</label>
+	<input type="number" name="sizexssold" />
+	<label>size S available</label>
+	<input type="number" name="sizesavail" />
+	<label>size S sold</label>
+	<input type="number" name="sizessold" />
+	<label>size M available</label>
+	<input type="number" name="sizemavail" />
+	<label>size M sold</label>
+	<input type="number" name="sizemsold" />
+	<label>size L available</label>
+	<input type="number" name="sizelavail" />
+	<label>size L sold</label>
+	<input type="number" name="sizelsold" />
+	<label>size XL available</label>
+	<input type="number" name="sizexlavail" />
+	<label>size XL sold</label>
+	<input type="number" name="sizexlsold" />
+	<label>size XXL available</label>
+	<input type="number" name="sizexxlavail" />
+	<label>size XXL sold</label>
+	<input type="number" name="sizexxlsold" />
+	</br></br>
+	<input type="Submit" value="Add Item" />
+</form>
+</br>
+<c:set var="cshowurl" value="/InventoryManagement/showcatalogueitemsservlet?cataloguename=${sessionScope.cataloguename}" />
+<input type="button" onclick="location.href='${cshowurl}';" value="Back" />
+</br></br>
+<input type="button" onclick="location.href='/InventoryManagement/jsp/login/loginform.jsp';" value="LogOut" />
+</div>	
 </body>
 </html>

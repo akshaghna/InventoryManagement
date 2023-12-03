@@ -5,25 +5,24 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ogha Add Catalogue</title>
+<style><%@include file="/css/im1.css"%></style>
 </head>
-<body>
-<h1>Added Catalogue successfully</h1>
+<body class="bg">
+<header>Ogha Inventory Management System - Add Catalogue</header>
+<label class="success">Added Catalogue Successful</label>
+<div class="center">
 <form action="/InventoryManagement/addcatalogueservlet" method="post">
-			<table style="with: 50%">
-				<tr>
-					<td>Catalogue Name</td>
-					<td><input type="text" name="catalogueName" /></td>
-				</tr>
-				<tr>
-					<td>Year</td>
-					<td><input type="number" name="year" /></td>
-				</tr>
-				<tr>
-					<td>Season</td>
-					<td><input type="text" name="season" /></td>
-				</tr>
-			</table>
-			<input type="Submit" value="Add" /></form>
-			<a href="/InventoryManagement/userhomeservlet"><button>Back</button></a>
+<label>Catalogue Name</label>
+<input type="text" name="catalogueName" />
+<label>Year</label>
+<input type="number" name="year" />
+<label>Season</label>
+<input type="text" name="season" />
+</br></br>
+<input type="Submit" value="Add" />
+</form>
+</br>
+<input type="button" onclick="location.href='/InventoryManagement/userhomeservlet';" value="Back" />
+</div>
 </body>
 </html>

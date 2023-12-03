@@ -5,9 +5,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Ogha Delete Catalogue</title>
+<style><%@include file="/css/im1.css"%></style>
 </head>
-<body>
-<h1>Delete Catalogue succesfull</h1>
-<a href="/InventoryManagement/userhomeservlet"><button>Back</button></a>
+<body class="bg">
+<header>Ogha Inventory Management System - Delete Catalogue</header>
+<label class="success">Delete Catalogue Sucessful</label>
+<div class="center">
+<input type="button" onclick="location.href='/InventoryManagement/userhomeservlet';" value="Back" />
+</div>
 </body>
 </html>

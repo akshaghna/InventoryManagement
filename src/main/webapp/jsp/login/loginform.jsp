@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ogha Login Form</title>
+<title>Ogha Login</title>
  <style><%@include file="/css/im1.css"%></style>
 </head>
 <body class="bg">
@@ -15,8 +15,10 @@
 	<input type="text" name="username" />
 	<label>Password</label>
 	<input type="password" name="password" />
+	</br></br>
 	<input type="submit" value="Login" />
 </form>
+</br>
 <input type="button" onclick="location.href='/InventoryManagement/jsp/login/register.jsp';" value="Register" />
 </div>
 </body>

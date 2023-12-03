@@ -9,13 +9,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ogha Inventory Management System</title>
+<title>Ogha User Catalogue Items</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<h3>Ogha Catalogue Items</h3>
+<style><%@include file="/css/im2.css"%></style>
 </head>
-<body>
-
-<table>
+<body class="bg">
+<header>Ogha Inventory Management System - User Catalogue Items</header>
+<table class="center">
 <% List<UserCatalogueItem> ucatitems = (List<UserCatalogueItem>)session.getAttribute("ucatitems");%>
 <tr>
    <th>Item Name</th>
@@ -33,8 +33,7 @@
    <th>Size XL Sold</th>
    <th>Size XXL Available</th>
    <th>Size XXL Sold</th>
-   <th></th>
-
+   <th>Action</th>
 </tr>
 <c:forEach items="${ucatitems}" var="ucatitem" varStatus="loop">
 <c:set var="diurl" value="/InventoryManagement/deletecitemsservlet?itemname=${ucatitem.itemname}" />
@@ -54,15 +53,16 @@
    <td><c:out value="${ucatitem.sizexlsold}"/></td>
    <td><c:out value="${ucatitem.sizexxlavail}"/></td>
    <td><c:out value="${ucatitem.sizexxlsold}"/></td>
-   <td><a href="${diurl}"><button>Delete</button></a></td>
-
-   
+   <td><input type="button" onclick="location.href='${diurl}';" value="Delete" /></td>   
 </tr>
 </c:forEach>
 </table>
-<a href="/InventoryManagement/jsp/catalogueitems/addcitems.jsp"><button>Add Item</button></a>
-<a href="/InventoryManagement/jsp/login/loginform.jsp"><button>LogOut</button></a>
-<a href="/InventoryManagement/jsp/catalogue/userhome.jsp"><button>Back</button></a>
-
+<div class="center">
+<input type="button" onclick="location.href='/InventoryManagement/jsp/catalogueitems/addcitems.jsp';" value="Add Item" />
+</br></br>
+<input type="button" onclick="location.href='/InventoryManagement/jsp/login/loginform.jsp';" value="LogOut" />
+</br></br>
+<input type="button" onclick="location.href='/InventoryManagement/jsp/catalogue/userhome.jsp';" value="Back" />
+</div>
 </body>
 </html>

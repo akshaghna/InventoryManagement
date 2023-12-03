@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ogha Registration Form</title>
+<title>Ogha User Registration</title>
 <style><%@include file="/css/im1.css"%></style>
 </head>
 <body class="bg">
@@ -26,8 +26,10 @@
 	<input type="text" name="emailid" />
 	<label>Contact No</label>
 	<input type="text" name="contact" />
+	</br></br>
 	<input type="submit" value="Submit" />
 </form>
+</br></br>
 <input type="button" onclick="location.href='/InventoryManagement/jsp/login/loginform.jsp';" value="Home" />
 </div>
 </body>

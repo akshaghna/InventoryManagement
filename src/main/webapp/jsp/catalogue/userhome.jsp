@@ -8,18 +8,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Ogha Inventory Management System</title>
+<title>Ogha User Catalogues</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<h3>Welcome to Ogha inventory</h3>
+<style><%@include file="/css/im1.css"%></style>
 </head>
-<body>
+<body class="bg">
+<header>Ogha Inventory Management System - User Catalogues</header>
 <% List<UserCatalogue> ucats = (List<UserCatalogue>)session.getAttribute("ucats");%>
- <table>
+ <table class="center">
 <tr>
    <th>Catalogue Name</th>
    <th>Year</th>
    <th>Season</th>
-   <th>  </th>
+   <th>Action</th>
    </th>
 
 </tr>
@@ -30,15 +31,19 @@
     <c:set var="curl" value="/InventoryManagement/showcatalogueitemsservlet?cataloguename=${ucat.catalogueName}" />
    <td><c:out value="${ucat.catalogueName}"/></td>
    <td><c:out value="${ucat.year}"/></td>
-  <td><c:out value="${ucat.season}"/></td>
-   <td><a href="${curl}"><button>Show</button></a><td>
-   <td><a href="${durl}"><button>Delete</button></a></td>
+   <td><c:out value="${ucat.season}"/></td>
+   <td>
+ 		<input type="button" onclick="location.href='${curl}';" value="Show" />
+		<input type="button" onclick="location.href='${durl}';" value="Delete" />
+   	</td>
 
 </tr>
 </c:forEach>
 </table>
-<a href="/InventoryManagement/jsp/catalogue/addcatalogue.jsp"><button>Add Catalogue</button></a>
-<a href="/InventoryManagement/jsp/login/loginform.jsp"><button>LogOut</button></a>
-
+<div class="center">
+<input type="button" onclick="location.href='/InventoryManagement/jsp/catalogue/addcatalogue.jsp';" value="Add Catalogue" />
+</br></br>
+<input type="button" onclick="location.href='/InventoryManagement/jsp/login/loginform.jsp';" value="Logout" />
+</div>
 </body>
 </html>

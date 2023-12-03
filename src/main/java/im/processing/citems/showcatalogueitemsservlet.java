@@ -18,7 +18,7 @@ public class showcatalogueitemsservlet extends HttpServlet {
 		String userName = (String)request.getSession().getAttribute("username");
 		System.out.println ("username:" + userName + "and cataloguename:" + catalogueName);
 		if(userName.isEmpty() || catalogueName.isEmpty()){
-			RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogueitems/showcataloguefail.jsp");
+			RequestDispatcher req = request.getRequestDispatcher("/jsp/catalogueitems/showcatalogueitemsfail.jsp");
 			req.include(request, response);
 		}
 		else

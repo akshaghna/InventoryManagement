@@ -3,15 +3,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<title>Ogha User Catalogue Items</title>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Ogha show Catalogue</title>
+<style><%@include file="/css/im2.css"%></style>
 </head>
-<body>
-<h1>Catalogue show unsuccessfullt</h1>
-<form action="addcatalogueservlet" method="post">
-			<table style="with: 50%">
-			</table>
-			<input type="Submit" value="show" /></form>
-			<a href="/InventoryManagement/userhomeservlet"><button>Back</button></a>
+<body class="bg">
+<header>Ogha Inventory Management System - User Catalogue Items</header>
+<label class="warning">Show Catalogue Items Failed, Try again</label>
+<div class="center">
+<input type="button" onclick="location.href='/InventoryManagement/userhomeservlet';" value="Back" />
+</div>
 </body>
 </html>
