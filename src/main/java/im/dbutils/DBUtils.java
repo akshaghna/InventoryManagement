@@ -159,17 +159,28 @@ public class DBUtils {
           	try{
           		conn = DBUtils.getConnection();
           		stmt = conn.createStatement();
-          		String query = "delete from oim_inventory_category where category='"+
-              		   cataloguename +"' and username='"+username+"'";
-          		System.out.println(query);
-          		int result1 = stmt.executeUpdate(query);
-          		if (result1>0) {
-                      System.out.println("successfully deleted"); 
-                      result = true;
-          		}  
-                  else {
-                      System.out.println( "unsucessful deletion "); 
-                  }      
+          		//deleting catalogue items first
+          		String query = "delete from OIM_INVENTORY_ITEMS where category='"+
+               		   cataloguename +"' and username='"+username+"'";
+           		System.out.println(query);
+           		int result1 = stmt.executeUpdate(query);
+           		if (result1>=0) {
+               		//deleting catalogue
+              		query = "delete from oim_inventory_category where category='"+
+                  		   cataloguename +"' and username='"+username+"'";
+              		System.out.println(query);
+              		result1 = stmt.executeUpdate(query);
+              		if (result1>0) {
+                          System.out.println("successfully deleted"); 
+                          result = true;
+              		}  
+                    else {
+                          System.out.println( "unsucessful deletion "); 
+                    }      
+           		}  
+                else {
+                       System.out.println( "unsucessful deletion "); 
+                }      
           	}catch (Exception e) {
           		  e.printStackTrace();
           	} 
